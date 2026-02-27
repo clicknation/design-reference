@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vignelli · Hellerware Auxiliary Palette</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      padding: 60px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .header {
+      border-top: 4px solid #1A1A1A;
+      padding-top: 32px;
+      margin-bottom: 64px;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* RAINBOW STACK — single horizontal row of tall swatches */
+    .stack-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      margin-bottom: 64px;
+      height: 280px;
+    }
+    .stack-swatch {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px 12px;
+    }
+    .stack-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .stack-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      opacity: 0.75;
+    }
+
+    /* Individual swatch colors — calibrated to Hellerware visual record */
+    .hw-pink    { background: #E8527A; color: #fff; }
+    .hw-orange  { background: #F07030; color: #fff; }
+    .hw-yellow  { background: #F5C800; color: #1a1a1a; }
+    .hw-green   { background: #3A9E5F; color: #fff; }
+    .hw-blue    { background: #2060A8; color: #fff; }
+    .hw-purple  { background: #6A3FA0; color: #fff; }
+    .hw-white   { background: #FFFFFF; color: #1a1a1a; border: 1px solid #ddd; }
+
+    /* DATA TABLE */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 64px;
+      font-size: 13px;
+    }
+    .data-table th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      padding: 8px 16px 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .data-table td {
+      padding: 14px 16px 14px 0;
+      border-bottom: 1px solid #eee;
+      vertical-align: middle;
+    }
+    .data-table td:first-child { font-weight: 700; }
+    .chip {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 8px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .mono {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    .confidence {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+    .conf-high   { background: #e6f4ea; color: #2e7d32; }
+    .conf-medium { background: #fff8e1; color: #795b00; }
+
+    /* COMBINED VIEW */
+    .combined-section {
+      margin-bottom: 64px;
+    }
+    .combined-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+      height: 80px;
+      margin-bottom: 2px;
+    }
+    .combined-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    /* PROVENANCE */
+    .provenance {
+      background: #fff;
+      border-left: 3px solid #1A1A1A;
+      padding: 24px 28px;
+      margin-bottom: 64px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #444;
+    }
+    .provenance strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .footer-rule {
+      border-top: 1px solid #ddd;
+      padding-top: 24px;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.05em;
+    }
+
+    /* PRIMARY palette mini row for reference */
+    .primary-mini {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+      height: 64px;
+      margin-bottom: 2px;
+      opacity: 0.65;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="eyebrow">Auxiliary Palette · Color Reference</div>
+    <h1>Hellerware<br>Rainbow Colors</h1>
+    <div class="subtitle">Lella & Massimo Vignelli for Heller, 1964/1971 · Supplemental to the Primary Vignelli Palette</div>
+  </div>
+
+  <!-- RAINBOW STACK -->
+  <div class="section-label">The Seven Hellerware Colors</div>
+  <div class="stack-row">
+    <div class="stack-swatch hw-pink">
+      <div class="stack-name">Pink</div>
+      <div class="stack-hex">#E8527A</div>
+    </div>
+    <div class="stack-swatch hw-orange">
+      <div class="stack-name">Orange</div>
+      <div class="stack-hex">#F07030</div>
+    </div>
+    <div class="stack-swatch hw-yellow">
+      <div class="stack-name">Yellow</div>
+      <div class="stack-hex">#F5C800</div>
+    </div>
+    <div class="stack-swatch hw-green">
+      <div class="stack-name">Green</div>
+      <div class="stack-hex">#3A9E5F</div>
+    </div>
+    <div class="stack-swatch hw-blue">
+      <div class="stack-name">Blue</div>
+      <div class="stack-hex">#2060A8</div>
+    </div>
+    <div class="stack-swatch hw-purple">
+      <div class="stack-name">Purple</div>
+      <div class="stack-hex">#6A3FA0</div>
+    </div>
+    <div class="stack-swatch hw-white">
+      <div class="stack-name">White</div>
+      <div class="stack-hex">#FFFFFF</div>
+    </div>
+  </div>
+
+  <!-- DATA TABLE -->
+  <div class="section-label">Color Specifications</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Hex</th>
+        <th>RGB</th>
+        <th>Pantone Approx.</th>
+        <th>Confidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="chip" style="background:#E8527A;"></span>Hellerware Pink</td>
+        <td class="mono">#E8527A</td>
+        <td class="mono">232, 82, 122</td>
+        <td>Pantone 213 C</td>
+        <td><span class="confidence conf-medium">Visual match</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#F07030;"></span>Hellerware Orange</td>
+        <td class="mono">#F07030</td>
+        <td class="mono">240, 112, 48</td>
+        <td>Pantone 1665 C</td>
+        <td><span class="confidence conf-medium">Visual match</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#F5C800;"></span>Hellerware Yellow</td>
+        <td class="mono">#F5C800</td>
+        <td class="mono">245, 200, 0</td>
+        <td>Pantone 116 C</td>
+        <td><span class="confidence conf-medium">Visual match</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#3A9E5F;"></span>Hellerware Green</td>
+        <td class="mono">#3A9E5F</td>
+        <td class="mono">58, 158, 95</td>
+        <td>Pantone 347 C</td>
+        <td><span class="confidence conf-medium">Visual match</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#2060A8;"></span>Hellerware Blue</td>
+        <td class="mono">#2060A8</td>
+        <td class="mono">32, 96, 168</td>
+        <td>Pantone 285 C</td>
+        <td><span class="confidence conf-medium">Visual match</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#6A3FA0;"></span>Hellerware Purple</td>
+        <td class="mono">#6A3FA0</td>
+        <td class="mono">106, 63, 160</td>
+        <td>Pantone 267 C</td>
+        <td><span class="confidence conf-medium">Visual match</span></td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#FFFFFF;"></span>Hellerware White</td>
+        <td class="mono">#FFFFFF</td>
+        <td class="mono">255, 255, 255</td>
+        <td>—</td>
+        <td><span class="confidence conf-high">Definitive</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- COMBINED VIEW -->
+  <div class="section-label">Combined Palette — Primary + Hellerware</div>
+  <div class="combined-section">
+    <div class="combined-label">Primary Palette</div>
+    <div class="primary-mini">
+      <div style="background:#F9423A;"></div>
+      <div style="background:#1A1A1A;"></div>
+      <div style="background:#FFFFFF; border:1px solid #ddd;"></div>
+      <div style="background:#FFD700;"></div>
+      <div style="background:#003087;"></div>
+      <div style="background:#999285;"></div>
+    </div>
+    <div class="combined-label" style="margin-top:10px;">Hellerware Auxiliary</div>
+    <div class="combined-row">
+      <div style="background:#E8527A;"></div>
+      <div style="background:#F07030;"></div>
+      <div style="background:#F5C800;"></div>
+      <div style="background:#3A9E5F;"></div>
+      <div style="background:#2060A8;"></div>
+      <div style="background:#6A3FA0;"></div>
+    </div>
+  </div>
+
+  <!-- PROVENANCE -->
+  <div class="section-label">Research Methodology & Notes</div>
+  <div class="provenance">
+    <strong>Sources & Confidence</strong>
+    The canonical color list for Hellerware — pink, orange, yellow, green, blue, purple, and white — is confirmed by the Vignelli Center for Design Studies archival brochure documented on Google Arts & Culture, which reproduces the original Heller Rainbow Dinnerware brochure designed by Massimo Vignelli. The dinnerware was originally produced in white only (1964, Italian manufacture), then yellow was added when Heller introduced the line in the US (1971). The full rainbow set was expanded in the mid-1970s.
+    <br><br>
+    Because Heller never published official Pantone specifications for these production colors, all RGB and hex values here are <em>visual approximations</em> derived from multiple product photographs — including MoMA Design Store listings, Tenon Design vintage inventory, and Remodelista editorial photography — and cross-referenced against Pantone C coated equivalents. They should be treated as close working values, not archivally precise specifications. For print production, physical color matching against original dinnerware is recommended. Note that the Hellerware Blue (#2060A8) is a warmer cobalt, distinct from the deeper Reflex Blue used in Vignelli's graphic work.
+    <br><br>
+    Additionally, later production runs (1980s–present) include <strong>red</strong> and <strong>black</strong>, which are already represented in the primary Vignelli palette and are therefore not duplicated here.
+  </div>
+
+  <div class="footer-rule">
+    Vignelli · Hellerware Auxiliary Palette · Compiled 2026 · Sources: Vignelli Center for Design Studies (RIT), Google Arts & Culture, MoMA Design Store, Heller Inc.
+  </div>
+
+</body>
+</html>

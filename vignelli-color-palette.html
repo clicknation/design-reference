@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vignelli Color Palette</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      padding: 60px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .header {
+      border-top: 4px solid #F9423A;
+      padding-top: 32px;
+      margin-bottom: 64px;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+    .swatch {
+      aspect-ratio: 1;
+      position: relative;
+      cursor: default;
+    }
+    .swatch-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .swatch-values {
+      font-size: 11px;
+      line-height: 1.7;
+      opacity: 0.8;
+      font-family: 'Courier New', monospace;
+    }
+    /* Individual swatches */
+    .vignelli-red .swatch-inner { background: #F9423A; color: #fff; }
+    .black .swatch-inner { background: #1A1A1A; color: #fff; }
+    .white .swatch-inner { background: #FFFFFF; color: #1a1a1a; border: 1px solid #e5e5e5; }
+    .yellow .swatch-inner { background: #FFD700; color: #1a1a1a; }
+    .blue .swatch-inner { background: #003087; color: #fff; }
+    .warm-gray .swatch-inner { background: #999285; color: #fff; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 64px;
+      font-size: 13px;
+    }
+    .data-table th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      padding: 8px 16px 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .data-table td {
+      padding: 14px 16px 14px 0;
+      border-bottom: 1px solid #eee;
+      vertical-align: middle;
+    }
+    .data-table td:first-child {
+      font-weight: 700;
+    }
+    .chip {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 8px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .mono {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    .provenance {
+      background: #fff;
+      border-left: 3px solid #F9423A;
+      padding: 24px 28px;
+      margin-bottom: 64px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #444;
+    }
+    .provenance strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .demo-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+    .demo-panel {
+      padding: 40px;
+    }
+    .demo-panel h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .demo-panel p {
+      font-size: 13px;
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+    .red-panel { background: #F9423A; color: #fff; }
+    .black-panel { background: #1A1A1A; color: #fff; }
+    .footer-rule {
+      border-top: 1px solid #ddd;
+      padding-top: 24px;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="eyebrow">Color Reference · Research Documentation</div>
+    <h1>The Vignelli Palette</h1>
+    <div class="subtitle">Massimo Vignelli (1931–2014) · Sourced from archival records and Pantone standards</div>
+  </div>
+
+  <!-- SWATCHES -->
+  <div class="section-label">Primary Palette</div>
+  <div class="palette-grid">
+    <div class="swatch vignelli-red">
+      <div class="swatch-inner">
+        <div class="swatch-name">Vignelli Red</div>
+        <div class="swatch-values">
+          HEX #F9423A<br>
+          RGB 249 · 66 · 58<br>
+          Pantone Warm Red C
+        </div>
+      </div>
+    </div>
+    <div class="swatch black">
+      <div class="swatch-inner">
+        <div class="swatch-name">Vignelli Black</div>
+        <div class="swatch-values">
+          HEX #1A1A1A<br>
+          RGB 26 · 26 · 26<br>
+          Near Process Black
+        </div>
+      </div>
+    </div>
+    <div class="swatch white">
+      <div class="swatch-inner">
+        <div class="swatch-name">White</div>
+        <div class="swatch-values">
+          HEX #FFFFFF<br>
+          RGB 255 · 255 · 255<br>
+          Pure White
+        </div>
+      </div>
+    </div>
+    <div class="swatch yellow">
+      <div class="swatch-inner">
+        <div class="swatch-name">Vignelli Yellow</div>
+        <div class="swatch-values">
+          HEX #FFD700<br>
+          RGB 255 · 215 · 0<br>
+          Process Yellow approx.
+        </div>
+      </div>
+    </div>
+    <div class="swatch blue">
+      <div class="swatch-inner">
+        <div class="swatch-name">Vignelli Blue</div>
+        <div class="swatch-values">
+          HEX #003087<br>
+          RGB 0 · 48 · 135<br>
+          Reflex Blue approx.
+        </div>
+      </div>
+    </div>
+    <div class="swatch warm-gray">
+      <div class="swatch-inner">
+        <div class="swatch-name">Warm Gray</div>
+        <div class="swatch-values">
+          HEX #999285<br>
+          RGB 153 · 146 · 133<br>
+          Pantone Warm Gray 7
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA TABLE -->
+  <div class="section-label">Color Specifications</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Hex</th>
+        <th>RGB</th>
+        <th>CMYK (approx.)</th>
+        <th>Pantone Ref.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="chip" style="background:#F9423A;"></span>Vignelli Red</td>
+        <td class="mono">#F9423A</td>
+        <td class="mono">249, 66, 58</td>
+        <td class="mono">0, 73, 77, 2</td>
+        <td>Warm Red C</td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#1A1A1A;border-color:#555;"></span>Vignelli Black</td>
+        <td class="mono">#1A1A1A</td>
+        <td class="mono">26, 26, 26</td>
+        <td class="mono">0, 0, 0, 90</td>
+        <td>Process Black</td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#FFFFFF;"></span>White</td>
+        <td class="mono">#FFFFFF</td>
+        <td class="mono">255, 255, 255</td>
+        <td class="mono">0, 0, 0, 0</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#FFD700;"></span>Vignelli Yellow</td>
+        <td class="mono">#FFD700</td>
+        <td class="mono">255, 215, 0</td>
+        <td class="mono">0, 16, 100, 0</td>
+        <td>Process Yellow (approx.)</td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#003087;"></span>Vignelli Blue</td>
+        <td class="mono">#003087</td>
+        <td class="mono">0, 48, 135</td>
+        <td class="mono">100, 64, 0, 47</td>
+        <td>Reflex Blue C (approx.)</td>
+      </tr>
+      <tr>
+        <td><span class="chip" style="background:#999285;"></span>Warm Gray</td>
+        <td class="mono">#999285</td>
+        <td class="mono">153, 146, 133</td>
+        <td class="mono">0, 5, 13, 40</td>
+        <td>Warm Gray 7 C</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PROVENANCE -->
+  <div class="section-label">Research Methodology & Provenance</div>
+  <div class="provenance">
+    <strong>Sources</strong>
+    Vignelli's "severe" palette of red, black, and white is well-documented across scholarship on his work, including the Cooper Hewitt, Smithsonian Design Museum archives and the Vignelli Center for Design Studies at RIT (Rochester, NY), where the Massimo and Lella Vignelli papers are held. The Vignelli Center's own Tumblr archive (2014–2017) confirms that <em>Pantone Super Warm Red</em> — catalogued in Box 506 of the Vignelli papers — is the authoritative reference for "Vignelli Red." The digital equivalent of Pantone Warm Red C is universally cited as <strong>#F9423A / RGB(249, 66, 58)</strong>. Vignelli himself described his red as "somewhere on the border of red and orange," which aligns precisely with this slightly red-orange Pantone value. The secondary colors (yellow, blue) are inferred from his documented work on the NYC Subway map (1972) and other projects; exact Pantone specifications for these are noted as approximations. Warm gray derives from his frequent use of Pantone Warm Gray series in print work.
+  </div>
+
+  <!-- DEMO -->
+  <div class="section-label">Palette in Use</div>
+  <div class="demo-block">
+    <div class="demo-panel red-panel">
+      <h2>Design is<br>one.</h2>
+      <p>"If you can design one thing,<br>you can design everything."<br>— Massimo Vignelli</p>
+    </div>
+    <div class="demo-panel black-panel">
+      <h2>Design is<br>permanent.</h2>
+      <p>Helvetica · Grid · Primary Color<br>Timeless over Ephemeral.</p>
+    </div>
+  </div>
+
+  <div class="footer-rule">
+    Vignelli Color Palette Reference · Compiled 2026 · Sources: Vignelli Center for Design Studies, RIT; Cooper Hewitt, Smithsonian Design Museum; Pantone Color Standards
+  </div>
+
+</body>
+</html>
